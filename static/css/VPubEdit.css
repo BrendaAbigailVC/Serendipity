@@ -1,0 +1,76 @@
+/* Estilos para el formulario de edición de publicación */
+.container2 {
+    margin: 0 auto;
+    background-color: #f0f2f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 800px; /* Ajusta el ancho máximo según sea necesario */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.container2 form {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.container2 label {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.container2 textarea {
+    font-family: 'Roboto', sans-serif;
+    resize: none;
+    flex: 1; 
+    padding: 10px;
+    border: 1px solid #3d2020;
+    border-radius: 6px;
+    margin-bottom: 10px; 
+}
+
+.container2 .input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.container2 .file-label {
+    display: flex;
+    align-items: center; 
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px;
+    border: 1px solid #ccd0d5;
+    border-radius: 6px;
+    background-color: #f0f2f5;
+    margin-bottom: 10px; 
+}
+
+.container2 .file-label img {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px; 
+}
+
+.container2 input[type="file"] {
+    display: none; 
+}
+
+.container2 input[type="submit"] {
+    background-color: #2B3A8C;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.container2 input[type="submit"]:hover {
+    background-color: #165bba;
+}

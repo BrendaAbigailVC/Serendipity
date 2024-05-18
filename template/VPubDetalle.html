@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de la Publicación</title>
+    <link rel="stylesheet" href="/static/css/VPubDetalle.css">
+</head>
+<body>
+    <div class="container">
+        {% if publicacion %}
+            <div class="publicacion">
+                {% if publicacion.imagen %}
+                    <img src="{{ publicacion.imagen }}" alt="Imagen de la publicación" class="imagen-publicacion">
+                {% endif %}
+                <div class="contenido">
+                    <p>{{ publicacion.contenido }}</p>
+                    <p class="fecha-publicacion">Fecha de Publicación: {{ publicacion.fecha_publicacion }}</p>
+                </div>
+            </div>
+        {% else %}
+            <p class="mensaje-error">No se encontró la publicación.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

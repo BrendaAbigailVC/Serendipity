@@ -1,0 +1,335 @@
+/* Estilos para el contenedor principal */
+.container {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.post {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: #f0f0f0; 
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.username {
+    color:#080926;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.timestamp {
+    color:#2B3A8C;
+    font-size: 0.8em;
+}
+
+.post-content {
+    margin-bottom: 10px;
+}
+
+.post-image {
+    max-width: 50%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 60%;
+    margin-right: 10px;
+}
+
+
+/* Estilos para la sección de comentarios */
+.comments-section {
+    text-align: left;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+
+.comments-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.comments-section li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #f7f3fe;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+.comments-section .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comments-section .comment-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.comments-section .username {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.comments-section .comment-date {
+    color: #888;
+    font-size: 0.8em;
+}
+
+.comments-section .comment-content {
+    margin-top: 10px; 
+}
+
+.comments-section .comment-image {
+    max-width: 50%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+.toggle-comments {
+    font-weight: bold;
+    background-color: #2B3A8C;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 180px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Estilos para los botones de reacción */
+.reaction-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.reaction-form button {
+    background:  #f1f1f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.reaction-form button img {
+    width: 25px;
+    height: 25px;
+}
+
+.reaction-form button:hover img {
+    transform: scale(1.2);
+    transition: transform 0.2s;
+}
+
+
+/* Estilos para el formulario de comentarios */
+.comment-form {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    border: 0px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #242259;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+.comment-input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.comment-form textarea {
+    font-family: 'Roboto', sans-serif;
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 14px;
+    resize: none;
+    outline: none;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.comment-form textarea::placeholder {
+    color: #2B3A8C;
+}
+
+.comment-form .file-label {
+    display: inline-block;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.comment-form .file-label img {
+    width: 40px;
+    height: 40px;
+}
+
+.comment-submit {
+    font-weight: bold;
+    background-color: #2B3A8C;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+/* Estilos del modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    font-family: 'Roboto', sans-serif;
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo común para ambos botones */
+.action-button {
+    background-color: #2B3A8C;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    display: flex;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.action-button:hover {
+    background-color: #2B3A8C;
+}
+
+.action-button img {
+    width: 24px;
+    height: 24px; 
+}
+
+/* Estilo común para agregar publicacion */
+
+.container2 {
+    margin: 0 auto;
+    background-color: #f0f2f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 5000px;
+    max-width: 90%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.container2 form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container2 .input-container {
+    display: flex;
+    align-items: center; /* Alinea los elementos al centro verticalmente */
+    margin-bottom: 10px;
+}
+
+.container2 textarea {
+    font-family: 'Roboto', sans-serif;
+    resize: none;
+    flex: 1; /* El área de texto ocupa todo el espacio disponible */
+    padding: 10px;
+    border: 1px solid #f1f1f1;
+    border-radius: 6px;
+    margin-right: 10px; /* Espacio entre el área de texto y el botón de subir imagen */
+}
+
+.container2 .file-label {
+    display: flex;
+    align-items: center; 
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccd0d5;
+    border-radius: 6px;
+    background-color: #f0f2f5;
+}
+
+.container2 .file-label img {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px; /* Espacio entre el icono de subir imagen y el texto */
+}
+
+.container2 input[type="submit"] {
+    background-color: #2B3A8C;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.container2 input[type="submit"]:hover {
+    background-color: #165bba;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Menu with speed gauge effect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="/static/css/menu.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+<body>
+
+<div class="header">  
+  <div class="header__logo">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Serendipity Logo">
+    <h1 class="logo__name">Serendipity</h1>
+  </div>
+
+  <nav class="navbar">
+    <ul class="navbar__menu">
+      <li class="navbar__item">
+        <a href="{{ url_for('menu_principal') }}"class="navbar__link"><i data-feather="home"></i><span>Inicio</span> </a>
+      </li>
+      <li class="navbar__item">
+        <a href="{{ url_for('mis_publicaciones') }}" class="navbar__link"><i data-feather="message-square"></i><span>Mis Publicaciones</span></a>        
+      </li>
+      <li clas="navbar__item">
+        <a href="{{ url_for('mostrar_grafica') }}" class="navbar__link"><i data-feather="archive"></i><span>Actividad</span></a>        
+      </li>
+      <li class="navbar__item">
+        <a href="{{ url_for('mostrar_perfil') }}" class="navbar__link"><i data-feather="folder"></i><span>Perfil</span></a>        
+      </li>
+      <li class="navbar__item">
+        <a href="{{ url_for('cerrar_sesion') }}" class="navbar__link"><i data-feather="help-circle"></i><span>Cerrar sesión</span></a>        
+      </li>
+    </ul>
+  </nav>
+</div>
+
+  <script src='https://unpkg.com/feather-icons'></script><script  src="./script.js"></script>
+
+</body>
+</html>
+

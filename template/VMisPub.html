@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Publicaciones</title>
+    <link rel="stylesheet" href="/static/css/VMisPubli.css">
+</head>
+<body>
+    {% include 'cabeceraUsuario.html' %}
+
+    <div class="container">
+        <ul>
+            {% for publicacion in publicaciones %}
+                <li class="post">
+                    <div class="post-content">
+                        <!-- Imagen de la publicación -->
+                        {% if publicacion.imagen %}
+                            <img class="post-image" src="{{ publicacion.imagen }}" alt="Imagen de la publicación">
+                        {% endif %}
+                        <!-- Contenido de la publicación -->
+                        <p>{{ publicacion.contenido }}</p>
+                    </div>
+                    <div class="button-group">
+                        <form action="/borrar-publicacion" method="post">
+                            <input type="hidden" name="publicacion_id" value="{{ publicacion.id }}">
+                            <button type="submit">Eliminar</button>
+                        </form>
+                        <form action="/editar_publicacion/{{ publicacion.id }}" method="GET">
+                            <input type="hidden" name="publicacion_id" value="{{ publicacion.id }}">
+                            <button type="submit" class="editar-btn">Editar</button>
+                        </form>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

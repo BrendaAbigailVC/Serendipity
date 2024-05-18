@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/muestra_grafica.css">
+</head>
+<body>
+     {% include 'cabeceraUsuario.html' %}
+     
+    <div class="container">
+        <h1>Gráfica de Actividad de Usuarios</h1>
+        <div class="description">
+            <p>
+                Esta gráfica muestra el conteo de publicaciones y comentarios realizados por cada usuario en nuestra plataforma. Los datos se agrupan por el identificador único de cada usuario, permitiendo una visualización clara de su actividad.
+            </p>
+            <p>
+                <strong>Ejes de la Gráfica:</strong>
+                <ul>
+                    <li>El eje horizontal (X) representa los identificadores únicos de los usuarios.</li>
+                    <li>El eje vertical (Y) muestra la cantidad de publicaciones y comentarios.</li>
+                </ul>
+            </p>
+            <p>
+                <strong>Barras de Colores:</strong>
+                <ul>
+                    <li>Las barras azules representan el número de publicaciones hechas por cada usuario.</li>
+                    <li>Las barras verdes representan el número de comentarios realizados por cada usuario.</li>
+                </ul>
+            </p>
+            <p>
+                La gráfica proporciona una comparación visual directa entre la cantidad de publicaciones y comentarios por usuario, ayudando a identificar a los usuarios más activos en términos de creación de contenido y participación en discusiones.
+            </p>
+        </div>
+        <div class="graph">
+            <img src="{{ url_for('static', filename='grafica_actividad.png') }}" alt="Gráfica de Actividad de Usuarios">
+        </div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+/* Estilos para la página de Mis Publicaciones */
+.container {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.post {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-content {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #555;
+}
+
+.post-image {
+    max-width: 50%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    font-weight: bold;
+    background-color: #2B3A8C;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 70px;
+    cursor: pointer;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #242259;
+    transform: scale(1.05);
+}
+
+button.editar-btn {
+    background-color: #2B3A8C;
+}
+
+button.editar-btn:hover {
+    background-color: #242259;
+}
+
+form {
+    display: inline-block;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+

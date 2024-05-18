@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal</title>
+    <link rel="stylesheet" href="/static/css/menu_principal.css">
+    <script src="/static/js/menu_principal.js" defer></script>
+</head>
+<body>
+   
+    {% include 'cabeceraUsuario.html' %}
+    <!-- Contenedor principal -->
+    <div class="container">
+
+        <div class="container2">
+            <form action="/nueva-publicacion" method="POST" enctype="multipart/form-data">
+                <div class="input-container">
+                    <textarea id="contenido" name="contenido"  placeholder="¿Qué estás pensando?" rows="4" cols="50"></textarea>
+                    <input type="file" name="imagen" accept="image/*" id="file-input" hidden>
+        
+                    <label for="file-input" class="file-label">
+                        <img src="/static/upload.png" alt="Subir imagen"> 
+                    </label>
+                </div>
+                <input type="submit" value="Publicar">
+            </form>
+        </div>
+         
+
+        <!-- Iterar sobre las publicaciones -->
+        {% for publicacion in publicaciones %}
+            <div class="post">
+                <div class="post-header">
+                    <!-- Avatar del usuario que hizo la publicación -->
+                    {% if publicacion.avatar %}
+                        <img class="avatar" src="{{ publicacion.avatar }}">
+                    {% endif %}
+                    <!-- Nombre de usuario -->
+                    <span class="username">{{ publicacion.usuario }}</span>
+                    <!-- Timestamp de la publicación -->
+                    <span class="timestamp">{{ publicacion.fecha_publicacion }}</span>
+                </div>
+                <div class="post-content">
+                    <!-- Contenido de la publicación -->
+                    {% if publicacion.imagen %}
+                        <img class="post-image" src="{{ publicacion.imagen }}" alt="Imagen de la publicación">
+                    {% endif %}
+                    <p>{{ publicacion.contenido }}</p>
+
+                    <!-- Botón para agrandar la publicación -->
+                    <form action="/agrandar-publicacion" method="post" class="enlarge-form">
+                        <input type="hidden" name="publicacion_id" value="{{ publicacion.id }}">
+                        
+                        <button type="button" class="enlarge-button action-button">
+                            <img src="/static/zoom.png" alt="Agrandar">
+                        </button>
+                    </form>
+
+                    <!-- Formulario para reacciones -->
+                    <form action="/ruta-reaccionar" method="post" class="reaction-form">
+                        <input type="hidden" name="id_publicacion" value="{{ publicacion.id }}">
+                        <button type="submit" name="tipo_reaccion" value="like">
+                            <img src="/static/like.png" alt="Me gusta">
+                            <span>{{ publicacion.num_likes }}</span>
+                        </button>
+                        <button type="submit" name="tipo_reaccion" value="love">
+                            <img src="/static/love.png" alt="Me encanta">
+                            <span>{{ publicacion.num_loves }}</span>
+                        </button>
+                        <button type="submit" name="tipo_reaccion" value="wow">
+                            <img src="/static/wow.png" alt="Wow">
+                            <span>{{ publicacion.num_wows }}</span>
+                        </button>
+                        <button type="submit" name="tipo_reaccion" value="sad">
+                            <img src="/static/sad.png" alt="Triste">
+                            <span>{{ publicacion.num_sads }}</span>
+                        </button>
+                        <button type="submit" name="tipo_reaccion" value="angry">
+                            <img src="/static/angry.png" alt="Enojado">
+                            <span>{{ publicacion.num_angrys }}</span>
+                        </button>
+                    </form>
+
+                   <!-- Formulario para agregar comentarios -->
+                    <form action="/agregar-comentario" method="POST" enctype="multipart/form-data" class="comment-form">
+                        <input type="hidden" name="id_publicacion" value="{{ publicacion.id }}">
+                        <div class="comment-input-container">
+                            <textarea name="contenido" placeholder="Escribe tu comentario aquí..."></textarea>
+                            <input type="file" name="imagen" accept="image/*" id="file-input-comentario" hidden>
+                            <label for="file-input-comentario" class="file-label">
+                                <img src="/static/upload.png" alt="Subir imagen">
+                            </label>
+                        
+                            <button type="submit" class="comment-submit">Enviar</button>
+                        </div>
+                    </form>
+                   
+        
+                     <!-- Botón para mostrar/ocultar comentarios -->
+                     <button class="toggle-comments">Comentarios</button>
+                    
+                   <!-- Sección de comentarios -->
+                <div class="comments-section" style="display: none;">
+                    {% if publicacion.comentarios %}
+                        <ul>
+                            {% set unique_comments = {} %}
+                            {% for comentario in publicacion.comentarios %}
+                                {% if comentario.id not in unique_comments %}
+                                    {% set _ = unique_comments.update({comentario.id: None}) %}
+                                    <li>
+                                        <!--Avatar del usuario que hizo el comentario -->
+                                        {% if comentario.avatar_usuario %}
+                                            <img class="avatar" src="{{ comentario.avatar_usuario }}">
+                                        {% endif %}
+                                        <div>
+                                            <div class="comment-header">
+                                                <!-- Nombre de usuario que hizo el comentario -->
+                                                <span class="username">{{ comentario.nombre_usuario }}</span>
+                                                <!-- Fcha del comentario -->
+                                                <span class="comment-date">{{ comentario.fecha_comentario }}</span>
+                                            </div>
+                                            <!-- Contenido del comentario -->
+                                            <p class="comment-content">{{ comentario.contenido }}</p>
+                                            <!-- Imagen adjunta al comentario -->
+                                            {% if comentario.imagen %}
+                                                <img class="comment-image" src="{{ comentario.imagen }}" alt="Imagen del comentario">
+                                            {% endif %}
+                                        </div>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>No hay comentarios para esta publicación.</p>
+                    {% endif %}
+                </div>
+
+                    <!-- Modal -->
+                    <div id="modal" class="modal">
+                        <div class="modal-content">
+                            <span class="close-button">&times;</span>
+                            <div id="modal-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

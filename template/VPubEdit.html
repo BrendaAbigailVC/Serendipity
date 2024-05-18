@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Publicación</title>
+    <link rel="stylesheet" href="/static/css/VPubEdit.css">
+</head>
+{% include 'cabeceraUsuario.html' %}
+
+<body>
+    <div class="container2">
+        <form method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+            <label>Editar Publicación</label>
+            <div class="input-container">
+                <textarea id="nuevo_contenido" name="nuevo_contenido" rows="4" cols="50">{{ publicacion.contenido }}</textarea>
+            </div>
+
+            <div class="input-container">
+                <label class="file-label" for="nueva_imagen">
+                    <img src="/static/upload.png" alt="Icono de imagen">
+                    Subir Imagen
+                    <input type="file" id="nueva_imagen" name="nueva_imagen">
+                </label>
+            </div>
+            <input type="submit" value="Guardar Cambios">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+.container {
+    font-family: 'Roboto', sans-serif;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+p{
+    text-align: left; 
+    margin-bottom: 5px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 40px;  margin-bottom: 40px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"] {
+    width: calc(100% - 22px); /* Ajusta el tamaño para incluir el ancho del borde */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: transparent; /* Quita el fondo */
+    margin-top: 5px;
+}
+
+button {
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2B3A8C;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #242259;
+}

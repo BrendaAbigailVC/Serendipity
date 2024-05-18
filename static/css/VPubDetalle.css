@@ -1,0 +1,38 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.publicacion {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.imagen-publicacion {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.contenido {
+    font-size: 18px;
+}
+
+.fecha-publicacion {
+    font-style: italic;
+    color: #666;
+}
+
+.mensaje-error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}

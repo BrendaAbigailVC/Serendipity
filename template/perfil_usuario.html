@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+   
+    <link rel="stylesheet" href="/static/css/perfil.css">
+
+    <script>
+        function habilitarCampos() {
+            document.getElementById("estado").disabled = false;
+            document.getElementById("musica").disabled = false;
+            document.getElementById("edad").disabled = false;
+            document.getElementById("pasatiempos").disabled = false;
+            document.getElementById("direccion").disabled = false;
+            document.getElementById("trabajo").disabled = false;
+        }
+
+        function habilitarYEnviar() {
+            habilitarCampos(); 
+            document.getElementById("formulario").submit(); 
+        }
+    </script>
+    
+</head>
+
+<body>
+   
+    {% include 'cabeceraUsuario.html' %}
+
+    <div class="container">
+        <h1>Perfil de {{ usuario['name'] }}</h1>
+        <img src="{{ usuario['avatar'] }}" alt="Avatar" style="width:150px;height:150px;">
+        <form id="formulario" action="{{ url_for('editar_informacion_personal') }}" method="post">
+            <p>Email: <input type="email" id="correo" name="correo" value="{{ usuario['correo'] }}" disabled></p>
+            <p>Estado: <input type="text" id="estado" name="estado" value="{{ usuario['estado'] }}" disabled></p>
+            <p>Música Favorita: <input type="text" id="musica" name="musica" value="{{ usuario['musica'] }}" disabled></p>
+            <p>Edad: <input type="number" id="edad" name="edad" value="{{ usuario['edad'] }}" disabled></p>
+            <p>Pasatiempos: <input type="text" id="pasatiempos" name="pasatiempos" value="{{ usuario['pasatiempos'] }}" disabled></p>
+            <p>Dirección: <input type="text" id="direccion" name="direccion" value="{{ usuario['direccion'] }}" disabled></p>
+            <p>Trabajo: <input type="text" id="trabajo" name="trabajo" value="{{ usuario['trabajo'] }}" disabled></p>
+            <button type="button" onclick="habilitarCampos()">Editar Información</button>
+            <button type="button" onclick="habilitarYEnviar()">Guardar Cambios</button>
+        </form>
+    </div>
+
+
+</body>
+</html>
